@@ -1,6 +1,7 @@
 {
   "name": "simple-shopping-cart-ts-react",
   "version": "0.1.0",
+  "homepage": "https://yurievakhnyak.github.io/simple-shopping-cart-ts-react",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
