@@ -15,18 +15,20 @@ const Product = ({
   REDUCER_ACTIONS,
   inCart,
 }: PropsType): ReactElement => {
-  const img: string = new URL(`../images/${product.sku}.jpg`, import.meta.url)
-    .href;
+  //   const img: string = new URL(`../images/${product.sku}.jpg`, import.meta.url)
+  //     .href;
+  const img: string = process.env.PUBLIC_URL + `/images/${product.sku}.jpg`;
+
   console.log("img:", img);
 
   const onAddToCart = () =>
     dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } });
 
-  const itemInCart = inCart ? "Item in Cart: + " : null;
+  const itemInCart = inCart ? " ✔️ -> Product in Cart" : null;
 
   const content = (
     <article className="product">
-      <h3>{product.name}</h3>
+      <h3 className="product__title">{product.name}</h3>
 
       <img
         // src={`/images/${product.sku}.jpg`}

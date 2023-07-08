@@ -12,8 +12,8 @@ type PropsType = {
 const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
   //   const img: string = new URL(`../images/${item.sku}.jpg`, import.meta.url)
   //     .href;
-
-  const img = require(`../images/${item.sku}.jpg`).default;
+  //   const img = require(`../images/${item.sku}.jpg`).default;
+  const img: string = process.env.PUBLIC_URL + `/images/${item.sku}.jpg`;
   const lineTotal: number = item.qty * item.price;
 
   const highestQty: number = 20 > item.qty ? 20 : item.qty;
@@ -44,11 +44,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
 
   const content = (
     <li className="cart__item">
-      <img
-        src={`/images/${item.sku}.jpg`}
-        alt={item.name}
-        className="cart__img"
-      />
+      <img src={img} alt={item.name} className="cart__img" />
       <div aria-label="Item Name">{item.name}</div>
       <div aria-label="Price Per Item">
         {new Intl.NumberFormat("en-US", {
@@ -81,7 +77,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
         title="Remove Item From Cart"
         onClick={onRemoveFromCart}
       >
-        Delete
+        ❌
       </button>
     </li>
   );

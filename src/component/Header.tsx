@@ -16,9 +16,9 @@ const Header = ({ viewCart, setViewCart }: PropsType) => {
         <div className="header__price-box">
           <p>Total Items: {totalItems}</p>
           <p>Total Price:{totalPrice}</p>
+          <Nav viewCart={viewCart} setViewCart={setViewCart} />
         </div>
       </div>
-      <Nav viewCart={viewCart} setViewCart={setViewCart} />
     </header>
   );
 

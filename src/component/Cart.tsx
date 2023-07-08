@@ -35,7 +35,9 @@ const Cart = () => {
           className="cart__submit"
           disabled={!totalItems}
           onClick={onSubmitOrder}
-        ></button>
+        >
+          Place Order
+        </button>
       </div>
     </>
   );
