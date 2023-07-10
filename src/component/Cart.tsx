@@ -12,7 +12,7 @@ const Cart = () => {
   };
 
   const pageContent = confirm ? (
-    <h2>Thank you for your order</h2>
+    <h2 className="cart">Thank you for your order</h2>
   ) : (
     <>
       <h2 className="offscreen">Cart</h2>

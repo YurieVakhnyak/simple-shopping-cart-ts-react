@@ -1,6 +1,7 @@
 import { ProductType } from "../context/ProductsProvider";
 import { ReducerActionType, ReducerAction } from "../context/CartProvider";
 import { ReactElement, memo } from "react";
+import { currencyFormatter } from "../utils/functions/currencyFormatter";
 
 type PropsType = {
   product: ProductType;
@@ -37,10 +38,7 @@ const Product = ({
         className="product__img"
       />
       <p>
-        {new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: "USD",
-        }).format(product.price)}
+        {currencyFormatter(product.price)}
         {itemInCart}
       </p>
       <button onClick={onAddToCart}>Add To Cart</button>

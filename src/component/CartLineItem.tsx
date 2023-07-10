@@ -2,6 +2,7 @@ import { ChangeEvent, ReactElement, memo } from "react";
 import { CartItemType } from "../context/CartProvider";
 import { ReducerAction } from "../context/CartProvider";
 import { ReducerActionType } from "../context/CartProvider";
+import { currencyFormatter } from "../utils/functions/currencyFormatter";
 
 type PropsType = {
   item: CartItemType;
@@ -46,12 +47,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
     <li className="cart__item">
       <img src={img} alt={item.name} className="cart__img" />
       <div aria-label="Item Name">{item.name}</div>
-      <div aria-label="Price Per Item">
-        {new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: "USD",
-        }).format(item.price)}
-      </div>
+      <div aria-label="Price Per Item">{currencyFormatter(item.price)}</div>
       <label htmlFor="itemQty" className="offscreen">
         Item Quantity
       </label>
@@ -66,10 +62,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
         {options}
       </select>
       <div className="cart__item-subtotal" aria-label="Line Item Subtotal">
-        {new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: "USD",
-        }).format(lineTotal)}
+        {currencyFormatter(lineTotal)}
       </div>
       <button
         className="cart__button"
