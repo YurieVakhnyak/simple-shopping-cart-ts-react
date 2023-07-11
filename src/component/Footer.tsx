@@ -15,7 +15,7 @@ const Footer = ({ viewCart }: PropsType) => {
     <>
       <p>Total Items: {totalItems}</p>
       <p>Total Price: {totalPrice}</p>
-      <p>Shopping Cart &copy; {year}</p>
+      <p>Shopping Cart by Dave Grey &copy; {year}</p>
     </>
   );
 
